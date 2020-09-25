@@ -46,6 +46,6 @@
 - `make run`
 
 ##### Demo
-[mojecv.herokuapp.com](http://mojecv.herokuapp.com)
+[www.cvbox.pl](http://www.cvbox.pl)
 - user: tester
 - pass: testowanie123

@@ -2,7 +2,7 @@
 ### Single page app that allows you to create, store, generate resume to pdf and change templates with one click.
 
 <a href="https://youtu.be/JY_-iuWHKu0">
-<img src="https://github.com/koualsky/mojecv/blob/master/demo.gif?raw=true">
+<img src="https://github.com/koualsky/mojecv-public/blob/master/demo.gif?raw=true">
 </a>
 
 ##### A brief overview of functionality:

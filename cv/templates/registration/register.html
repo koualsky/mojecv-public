@@ -1,0 +1,61 @@
+{% extends 'cv/base_without_footer.html' %}
+
+{% block content %}
+
+<div class="text-center login-header">
+    <h1 class="login-title">Zarejestruj się</h1>
+    <p class="login-description">Wypełniajac 4 poniższe pola</p>
+</div>
+
+<div class="d-flex justify-content-center">
+    <div class="text-center">
+        <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <!--{{ form.as_p }}-->
+            <table>
+                <tr>
+                    <td class="text-left pl-2 login-register-label">Twój Login</td>
+                </tr>
+                <tr>
+                    <td class="p-1">{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-2 pt-4 login-register-label">Email</td>
+                </tr>
+                <tr>
+                    <td class="p-1">{{ form.email }}</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-2 pt-4 login-register-label">Hasło</td>
+                </tr>
+                <tr>
+                    <td class="p-1">{{ form.password1 }}</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-2 pt-4 login-register-label">Potwierdź hasło</td>
+                </tr>
+                <tr>
+                    <td class="p-1">{{ form.password2 }}</td>
+                </tr>
+            </table>
+            <div class="text-right">
+                <input type="submit" value="Zarejestruj" class="login-button">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="text-center">
+    {% if form.errors %}
+        {{ form.errors }}
+    {% endif %}
+</div>
+
+<div class="navbar fixed-bottom">
+    <div>
+        <a class="nav-link float-left btn-sm text-muted" href="{% url 'regulamin' %}">Regulamin</a>
+        <a class="nav-link float-left btn-sm text-muted" href="{% url 'privacy' %}">Polityka prywatności</a>
+        <a class="nav-link float-left btn-sm text-muted" href="{% url 'kontakt' %}">Kontakt</a>
+    </div>
+</div>
+
+{% endblock %}

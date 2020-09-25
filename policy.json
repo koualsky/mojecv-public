@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VPCAllow",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:*",
+      "Resource": "arn:aws:s3:::bucketeer-76017907-f421-465f-9cc2-2222/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:sourceVpc": "<AWS_VPC_ID>"
+        }
+      }
+    }
+  ]
+}

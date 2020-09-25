@@ -1,0 +1,62 @@
+{% extends 'cv/base_without_footer_plus.html' %}
+
+{% block content %}
+
+<div class="text-center login-header">
+    <h1 class="login-title">Zaloguj się</h1>
+</div>
+
+<div class="d-flex justify-content-center">
+    <div class="text-center">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td class="text-left pl-2 login-register-label">Twój Login</td>
+                </tr>
+                <tr>
+                    <td class="p-1">{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-2 pt-4 login-register-label">Hasło</td>
+                </tr>
+                <tr>
+                    <td class="p-1">{{ form.password }}</td>
+                </tr>
+            </table>
+            <div class="text-right">
+                <a href="{% url 'password_reset' %}" class="restore-password">Zresetuj hasło</a>
+            </div>
+            <div class="text-right">
+                <input type="submit" value="Zaloguj" class="login-button">
+                <input type="hidden" name="next" value="{{ next }}">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="text-center">
+    {% if form.errors %}
+        <!--<p>Your username and password didn't match. Please try again.</p>-->
+        <p>Błędne hasło lub nazwa użytkownika. Spróbuj ponownie.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p>Your account doesn't have access to this page. To proceed,
+            please login with an account that has access.</p>
+        {% else %}
+            <p>Please login to see this page.</p>
+        {% endif %}
+    {% endif %}
+</div>
+
+<div class="navbar fixed-bottom">
+    <div>
+        <a class="nav-link float-left btn-sm text-muted" href="{% url 'regulamin' %}">Regulamin</a>
+        <a class="nav-link float-left btn-sm text-muted" href="{% url 'privacy' %}">Polityka prywatności</a>
+        <a class="nav-link float-left btn-sm text-muted" href="{% url 'kontakt' %}">Kontakt</a>
+    </div>
+</div>
+
+{% endblock %}

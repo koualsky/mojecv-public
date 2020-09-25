@@ -1,0 +1,277 @@
+// COLORS LEFT:
+$left_picture_bg: rgb(219, 15, 105)
+$left_bg: #dbdbdb
+$left_line: $left_picture_bg
+$left_text_head: #1d1d1d
+$left_level_fill: $left_picture_bg
+$left_level_empty: #bbbbbb
+$left_text_titles: $left_text_head
+$left_text_content: $left_text_head
+
+// COLORS RIGHT:
+$right_bg: white
+$right_line: #d5dae2 //#30353e
+$right_text_titles: $left_text_content
+$right_text_titles_big: $left_text_head
+$right_text_content: $left_text_head
+
+// SIZES LEFT
+$left_width: 38%
+$left_padding: 12%
+$left_title_top_padding: 0
+$left_title_components_padding: 12%
+$left_full_name_size: 1.2vw
+$left_job_title_size: $left_full_name_size / 2
+$left_title_size: .7vw
+$left_content_size: .6vw
+$left_dots_size: $left_content_size * 3
+$left_level_dots_brakes: $left_content_size / 6
+$left_line_height: 1.3
+
+// SIZES RIGHT
+$right_width: 100% - $left_width
+$right_padding: 7%
+$right_padding_big-title: $right_padding
+//$right_title_top_padding: 2%
+//$right_title_components_padding: 4%
+//$right_full_name_size: 1vw
+//$right_job_title_size: $right_full_name_size / 1.5
+$right_title_size: .7vw
+$right_content_size: .6vw
+$right_dots_size: $right_content_size // * 1.4
+$right_level_dots_brakes: $right_content_size / 2
+$right_line_height: 1.3
+$right_date_brake: .3vw
+$right_items_brake: .6vw
+
+.cv_container
+    width: 100%
+    height: 100%
+
+.cv_main
+    width: 100%
+    height: 100%
+
+.cv_template_5
+    width: 100%
+    height: 100%
+
+    .cv_icons
+        display: flex !important
+        align-items: center !important
+
+    .cv_icon_inside
+        font-size: $left_content_size * 2
+        //padding-right: 1vh
+        width: 4vh
+        font-weight: normal
+        //display: inline-block
+
+    .cv_left
+        border: 0 !important
+        background-color: $left_bg
+        height: 100%
+        width: $left_width
+        padding: 0 !important
+        line-height: $left_line_height
+
+    .cv_left_container
+        padding: 0
+        margin: 0
+        height: 44.55vw !important
+        max-height: 44.55vw !important
+
+    .cv_photo
+        width: 100%
+        position: relative
+        padding: $left_padding
+
+    .cv_name_and_job_title
+        background-color: $left_picture_bg
+        width: 100%
+        max-width: 100%
+        //position: absolute
+        margin-top: 7.4%
+        width: 93%
+        padding: $left_padding / 2
+        text-align: center
+        //top: 58%
+        bottom: 0
+        //left: 50%
+        //transform: translate(-50%, 0%)
+        //transform: translate(-7.7%, 0%)
+        text-transform: uppercase
+        border-top-right-radius: .5vh
+        -webkit-border-top-right-radius: .5vh
+        border-bottom-right-radius: .5vh
+        -webkit-border-bottom-right-radius: .5vh
+
+    .cv_name
+        width: 100%
+        max-width: 100%
+        color: white
+        text-align: left
+        font-size: $left_full_name_size
+        font-weight: bold
+
+    .cv_job_title
+        color: white
+        text-align: left
+        font-size: $left_job_title_size
+
+    .cv_pre_left
+        width: 100%
+        padding-top: $left_title_top_padding
+
+    .cv_left_title
+        width: 100%
+        color: $left_text_titles
+        text-align: left
+        font-size: $left_title_size
+        font-weight: bold
+        padding-top: $left_title_components_padding
+        padding-left: $left_padding
+        padding-right: $left_padding
+        text-transform: uppercase
+
+    .cv_left_content
+        width: 100%
+        color: $left_text_content
+        text-align: left
+        font-size: $left_content_size
+        padding-top: 0
+        padding-left: $left_padding
+        padding-right: $left_padding
+
+    .cv_left_line
+        width: 100% - $left_padding
+        float: right
+        margin-top: 0.25rem
+        margin-bottom: 0.25rem
+        border-top: 1px solid $left_bg
+
+    .cv_left_line::before
+        content: "------------------------------------------------------"
+        font-size: $left_content_size / 6
+        color: #cacdd2
+        background-color: $left_picture_bg
+        position: relative
+        left: 0
+        top: -.13vh
+        float: left
+
+    .cv_left_line_brake
+        width: 100%
+        height: $left_content_size / 1.5
+        padding: 0
+
+    //.cv_link
+
+    .cv_level
+        display: inline-block
+        margin: auto
+        font-size: $left_content_size
+        //line-height: $left_line_height / 4
+
+    .cv_level_fill
+        display: inline-block
+        font-size: $left_dots_size
+        color: $left_level_fill
+        margin-right: $left_level_dots_brakes
+        line-height: $left_line_height / 4
+        vertical-align: middle
+
+    .cv_level_empty
+        display: inline-block
+        font-size: $left_dots_size
+        color: $left_level_empty
+        margin-right: $left_level_dots_brakes
+        line-height: $left_line_height / 4
+        vertical-align: middle
+
+
+
+
+
+    .cv_right
+        border: 0 !important
+        background-color: $right_bg
+        height: 100%
+        width: $right_width
+        padding: 0 !important
+        margin: 0 !important
+        line-height: $right_line_height
+
+    .cv_right_container
+        padding: 0
+        margin: 0
+        height: 44.55vw !important
+        max-height: 44.55vw !important
+
+    .cv_right_unit
+        width: 100%
+        //background-color: #a8c3e2;
+        //border-radius: 0.2vw !important;
+
+    .cv_right_title
+        width: 100%
+        color: $right_text_titles_big
+        text-align: left
+        font-size: $right_title_size
+        font-weight: bold
+        text-transform: uppercase
+        padding-left: $right_padding
+        padding-right: $right_padding
+        padding-top: $right_padding_big-title
+        padding-bottom: 0
+
+    .cv_right_content
+        width: 100%
+        color: $right_text_content
+        text-align: left
+        font-size: $right_content_size
+        padding-left: $right_padding
+        padding-right: $right_padding
+
+    .cv_right_line
+        width: 100%
+        float: left
+        margin-top: 0.35rem
+        margin-bottom: 0.35rem
+        color: white
+        border-top: 1px solid white
+
+    .cv_right_line::before
+        content: "------------------------------------------------------"
+        font-size: $right_content_size / 6
+        color: $left_picture_bg
+        background-color: $left_picture_bg
+        position: relative
+        top: -1vh
+
+    .cv_employment_history_job_title
+        display: inline-block
+        font-size: $right_content_size
+        font-weight: bold
+        color: $right_text_titles
+
+    .cv_employment_history_city
+        display: inline-block
+        font-size: $right_content_size
+        font-weight: bold
+        color: $right_text_titles
+        float: right
+        text-align: right
+
+    .cv_employment_history_date
+        margin-bottom: $right_date_brake
+
+    .cv_job_description_brake
+        margin-bottom: $right_items_brake
+
+    //.cv_job_description_zero
+
+    .cv_rodo_clause
+        position: absolute
+        bottom: 0
+        margin-bottom: $right_padding/2 !important

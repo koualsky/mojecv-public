@@ -1,0 +1,155 @@
+{% extends 'cv/base_without_footer.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+    <div class="container pb-5">
+
+      <div class="row p-5">
+          <div class="col text-center">
+            <h1 class="premium_info_title font-weight-bold">Premium</h1>
+            <p class="premium_info">
+            {% if user.profile.greater_than_today %}
+                Twoje konto premium jest aktywne do <span class="font-weight-bold">{{ user.profile.short_date }}</span>
+            {% else %}
+                Przedłuż okres <span class="font-weight-bold">premium</span> i korzystaj z wszystkich szablonów
+            {% endif %}
+            </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col d-flex flex-wrap align-items-center d-flex justify-content-center pb-0 mb-0">
+        {% for plan in context %}
+
+            <div class="card bg-light border-0 m-1 p-3 h-100 text-dark" style="max-width: 18rem;">
+
+
+                <div class="text-center font-weight-bold pt-3"><h1 id="price_{{ plan.id }}" class="d-inline font-weight-bold">{{ plan.price }}</h1><span>ZŁ</span></div>
+                <div class="text-center font-weight-bold"><h1 id="new_price_{{ plan.id }}" class="d-inline font-weight-bold" style="display:none;"></h1><span style="display:none;">ZŁ</span></div>
+
+                <h6 class="text-center pl-4 pr-4 pt-1 mb-0" style="font-size: 0.9rem;">
+                {% if plan.days == 30 %}
+                    1 miesiąc
+                {% elif plan.days == 365 %}
+                    12 miesięcy
+                {% else %}
+                    {{ plan.days }}-dniowy dostęp premium
+                {% endif %}
+                </h6>
+
+                <div class="card-body d-flex flex-column" style="font-size: 0.9rem">
+                    <ul class="pricing-ul-li">
+                    {% for argument in plan.arguments %}
+                        {% if plan.id == 1 %}
+                            <li>{{ argument }}</li>
+                        {% else %}
+                            <li>{{ argument }}</li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+
+                    <a href="{{ plan.url }}" id="url_{{ plan.id }}" type="button" class="btn btn-primary btn-block font-weight-bold justify-content-center align-self-center pl-4 pr-4 pb-2 pt-2" style="margin-top: auto;">Kup</a>
+                </div>
+            </div>
+
+        {% endfor %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex flex-wrap align-items-center d-flex justify-content-center pb-0 mb-0">
+
+            <div class="input-group" style="width: 18rem; margin-top: 1.6rem;">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Kod promocyjny</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" onkeyup="checkCode(this.value)">
+            </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="col text-center pricing-logos">
+            <img class="pricing-image" src="https://bucketeer-76017907-f421-465f-9cc2-2a75b892868d.s3.amazonaws.com/media/images/dp_logo_alpha.png" />
+            <img class="pricing-image" src="https://bucketeer-76017907-f421-465f-9cc2-2a75b892868d.s3.amazonaws.com/media/images/channel_0_pl.png" />
+            <img class="pricing-image" src="https://bucketeer-76017907-f421-465f-9cc2-2a75b892868d.s3.amazonaws.com/media/images/channel_1_pl.png" />
+            <img class="pricing-image" src="https://bucketeer-76017907-f421-465f-9cc2-2a75b892868d.s3.amazonaws.com/media/images/channel_4_pl.png" />
+            <img class="pricing-image" src="https://bucketeer-76017907-f421-465f-9cc2-2a75b892868d.s3.amazonaws.com/media/images/channel_73_pl.png" />
+            <img class="pricing-image" src="https://bucketeer-76017907-f421-465f-9cc2-2a75b892868d.s3.amazonaws.com/media/images/channel_212_pl.png" />
+        </div>
+      </div>
+
+    </div>
+    {% else %}
+
+        {% include "./main.html" %}
+
+    {% endif %}
+
+<script language="javascript">
+
+    // Linki z starymi cenami
+    let old_url_1 = document.getElementById("url_1").href;
+    let old_url_2 = document.getElementById("url_2").href;
+    let old_url_3 = document.getElementById("url_3").href;
+
+    // Stworzenie listy kodów
+    let url = 'https://mojecv.herokuapp.com/api/codes/'; // TODO: PRZED PUSH DAĆ TU URL Z MOJECV!
+    let codes = [];
+    fetch(url)
+        .then(data=>{return data.json()})
+        .then(res=>{
+            for (let code in res) {
+                codes.push(res[code]['name']);
+            }
+        })
+
+    function checkCode(value) {
+        if (codes.includes(value)) {
+
+            document.getElementById("new_price_1").innerText = "3";
+            document.getElementById("new_price_2").innerText = "9";
+            document.getElementById("new_price_3").innerText = "59";
+            document.getElementById("new_price_1").classList.add("new_price");
+            document.getElementById("new_price_2").classList.add("new_price");
+            document.getElementById("new_price_3").classList.add("new_price");
+            document.getElementById("new_price_1").nextElementSibling.classList.add("new_price");
+            document.getElementById("new_price_2").nextElementSibling.classList.add("new_price");
+            document.getElementById("new_price_3").nextElementSibling.classList.add("new_price");
+            document.getElementById("price_1").classList.add("old_price");
+            document.getElementById("price_2").classList.add("old_price");
+            document.getElementById("price_3").classList.add("old_price");
+            document.getElementById("price_1").nextElementSibling.classList.add("old_price");
+            document.getElementById("price_2").nextElementSibling.classList.add("old_price");
+            document.getElementById("price_3").nextElementSibling.classList.add("old_price");
+
+            document.getElementById("url_1").href = 'https://ssl.dotpay.pl/t2/?chk=ed95c0137517740e6e939a4bbb815ecb9e3a44a5f9a8eb7853c51b51bd53721c&pid=yj6tflxtwhb2xsmeylrye5pezy507iu5';
+            document.getElementById("url_2").href = 'https://ssl.dotpay.pl/t2/?chk=91e9b8cdf25a5497636ee8e07fabe09886250511f869a2a598dd772c9d0b0f9d&pid=13gsn3b63z08fcgewz1mdkra0iuceq8v';
+            document.getElementById("url_3").href = 'https://ssl.dotpay.pl/t2/?chk=cbfdac81e0cc867ff75dacf8e79193d7a19c908c75337d8a264efe91d2b2008c&pid=yry3rk99hievcf64w77z0zmaqu7wtznv';
+        } else {
+            document.getElementById("new_price_1").innerText = '';
+            document.getElementById("new_price_2").innerText = '';
+            document.getElementById("new_price_3").innerText = '';
+            document.getElementById("new_price_1").nextElementSibling.classList.remove("new_price");
+            document.getElementById("new_price_2").nextElementSibling.classList.remove("new_price");
+            document.getElementById("new_price_3").nextElementSibling.classList.remove("new_price");
+            document.getElementById("price_1").classList.remove("old_price");
+            document.getElementById("price_2").classList.remove("old_price");
+            document.getElementById("price_3").classList.remove("old_price");
+            document.getElementById("price_1").nextElementSibling.classList.remove("old_price");
+            document.getElementById("price_2").nextElementSibling.classList.remove("old_price");
+            document.getElementById("price_3").nextElementSibling.classList.remove("old_price");
+
+            document.getElementById("url_1").href = old_url_1;
+            document.getElementById("url_2").href = old_url_2;
+            document.getElementById("url_3").href = old_url_3;
+        }
+    }
+
+</script>
+
+{% endblock %}

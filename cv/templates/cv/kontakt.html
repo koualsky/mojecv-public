@@ -1,0 +1,20 @@
+{% extends 'cv/base_without_footer.html' %}
+
+{% block content %}
+
+    <div class="d-flex justify-content-center">
+        <div class="d-inline-flex p-3" style="position: absolute; top: 40%;">
+            <div class="text-center">
+                <a href="mailto:biurocvbox@gmail.com">biurocvbox@gmail.com</a>
+            </div>
+        </div>
+    </div>
+    <div class="navbar fixed-bottom">
+        <div>
+            <a class="nav-link float-left btn-sm text-muted" href="{% url 'regulamin' %}">Regulamin</a>
+            <a class="nav-link float-left btn-sm text-muted" href="{% url 'privacy' %}">Polityka prywatności</a>
+            <a class="nav-link float-left btn-sm text-muted" href="{% url 'kontakt' %}">Kontakt</a>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,239 @@
+body {
+    background-color: white !important;
+    font-size: 0.9rem;
+    color: #3e4750;
+}
+
+footer {
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.add-new-button {
+    text-align: center;
+    position: fixed;
+    bottom: 0.5rem;
+    right: 1rem;
+    font-size: 3vw;
+}
+
+.rounded {
+    width: 300px;
+}
+
+.cv-item-margin {
+    margin: 1.1em 2.2em;
+}
+
+.cv_card {
+    width: 302px;
+    height: 427px;
+    position: relative;
+    border: 1px solid #f1f1f1;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.cv_card:hover {
+    -webkit-box-shadow: 0px 0px 30px -20px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 30px -20px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 30px -20px rgba(0,0,0,0.75);
+}
+
+.top-menu-item {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.premium_star_active {
+    color: #007bff;
+    font-size: 0.7rem;
+    margin-right: 4px;
+}
+
+.premium_star_unactive {
+    font-size: 0.8rem;
+    margin-right: 4px;
+}
+
+.premium_info_title {
+    margin: 0px;
+}
+
+.premium_info {
+    display: inline-block;
+    font-size: 0.9rem;
+    margin-bottom: 4rem;
+}
+
+.pricing-ul-li {
+    padding-inline-start: 1rem;
+    padding-inline-end: 1rem;
+    list-style: none;
+}
+
+.pricing-ul-li li::before {
+    content: "\2713";
+    color: green;
+    font-weight: bold;
+    display: inline-block;
+    width: 1.2em;
+    margin-left: -1.2em;
+}
+
+.pricing-background {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #7abaff !important;
+    background-image: url("https://bucketeer-76017907-f421-465f-9cc2-2a75b892868d.s3.amazonaws.com/media/images/payments.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    background-blend-mode: darken;
+}
+
+.pricing-logos {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 10px;
+}
+
+.pricing-image {
+    height: 35px !important;
+}
+
+.old_price {
+    text-decoration: line-through;
+    color: #babcbf;
+}
+
+.new_price {
+    display: inline-block !important;
+}
+
+.errorlist {
+    list-style-type: none;
+}
+
+.errorlist li {
+    color: white;
+}
+.errorlist li ul li {
+    color: #3e4750 !important;
+}
+
+#id_username, #id_password, #id_password1, #id_password2, #id_email {
+    width: 20vw;
+    border: 0;
+    background-color: #f2f5fa;
+    color: #3b3c3d;
+    font-weight: bold;
+    padding: 16px 20px;
+    border-radius: 3px;
+    border-bottom: 2px solid #f2f5fa !important;
+}
+
+#id_username:focus, #id_password:focus, #id_password1:focus, #id_password2:focus, #id_email:focus {
+    outline: none;
+    border-bottom: 2px solid #007bff !important;
+}
+
+.login-register-label {
+    font-size: .9em;
+    cursor: default;
+    color: #929497;
+}
+
+.login-button {
+    padding: 14px 26px;
+    margin-top: 3px;
+    margin-right: 4px;
+    color: white;
+    font-weight: bold;
+    background-color: #1885fa;
+    border: 0;
+    border-radius: 3px;
+}
+
+.login-button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.restore-password {
+    font-size: .9em;
+    margin-right: 4px;
+}
+
+.login-header {
+    padding-top: 4em;
+    padding-bottom: 2em;
+}
+
+.login-title {
+    font-weight: bold;
+    color: #3e8fea;
+    font-size: 3.3em;
+    letter-spacing: .01em;
+    margin-bottom: .6em;
+    line-height: 1em;
+    cursor: default;
+}
+
+.login-description {
+    font-size: 1em;
+    letter-spacing: .05em;
+    line-height: 1.2em;
+    margin: 0;
+    cursor: default;
+}
+
+.main-img-div {
+    margin: auto;
+    margin-right: 0;
+}
+
+@keyframes bigger {
+    0%   {height: 60vh;}
+    50%  {height: 61vh;}
+    100% {height: 60vh;}
+}
+
+.main-img {
+    height: 60vh;
+}
+
+.main-img:hover {
+    animation-name: bigger;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+.main-img2 {
+    /*height: 60vh;*/
+    width: 250px;
+}
+
+.main-right {
+    max-width: 40vh;
+    padding-left: 4vh;
+    margin: auto;
+    margin-left: 0;
+}
+
+.main-register-button {
+    margin-top: 20px !important;
+}
+
+.logo-img {
+    height: 30px;
+}

@@ -1,0 +1,49 @@
+{% extends 'cv/base_without_footer.html' %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex flex-wrap align-items-top d-flex justify-content-left">
+        {% for cv in cv_list %}
+
+            <div class="text-center cv-item-margin text-center">
+                <div class="cv_card">
+                    <a href="app/{{ cv.pk }}">
+
+                        {% if cv.cv_photo %}
+                            <!--<img src="media/images/cv_photo/{{ cv.id }}.jpg" class="rounded" />-->
+                            <img src="https://bucketeer-76017907-f421-465f-9cc2-2a75b892868d.s3.amazonaws.com/media/images/cv_photo/{{ cv.id }}.jpg" class="rounded" />
+                        {% else %}
+                            <img src="https://bucketeer-76017907-f421-465f-9cc2-2a75b892868d.s3.amazonaws.com/media/images/cv_photo/empty.png" class="rounded" />
+                        {% endif %}
+
+                    </a>
+                </div>
+                <p style="display: block; float: left; padding-left: 1px; cursor: default;">{{ cv.title }}</p>
+                <a href="{% url 'delete' pk=cv.pk %}" style="display: block; float: right; padding-right: 1px;">Usuń</a>
+            </div>
+
+        {% endfor %}
+
+            <div class="text-center cv-item-margin text-center">
+                <div class="cv_card">
+                    <a href="{% url 'create' %}" title="Dodaj nowy dokument">
+
+                        <img src="https://bucketeer-76017907-f421-465f-9cc2-2a75b892868d.s3.amazonaws.com/media/images/create-new-document.png" class="rounded" />
+
+                    </a>
+                </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+    {% else %}
+
+        {% include "./main.html" %}
+
+    {% endif %}
+
+{% endblock %}
